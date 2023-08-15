@@ -1,6 +1,9 @@
 import React from 'react';
 import { Navbar,Nav , Container} from 'react-bootstrap';
 import { FaShoppingCart, FaUser} from 'react-icons/fa';
+import {LinkContainer} from 'react-router-bootstrap';
+
+
 const Header = () => {
   return (
     <header>
@@ -8,12 +11,19 @@ const Header = () => {
       <Navbar bg = "dark" variant = "dark" expand="md" collapseOnSelect>
 
       <Container>
+        <LinkContainer to='/'>
         <Navbar.Brand href="/">AFnaN's Shop</Navbar.Brand>
+        </LinkContainer>
         <Navbar.Toggle aria-controls ="basic-navber-nav" />
         <Navbar.Collapse id ="basic-navber-nav">
           <Nav className="ms-auto">
-            <Nav.Link href= "/card"><FaShoppingCart/>Cart</Nav.Link>
-            <Nav.Link href= "/login"><FaUser/>Sign In</Nav.Link>
+            <LinkContainer to='/cart'>
+            <Nav.Link ><FaShoppingCart/>Cart</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to='/login'>
+            <Nav.Link ><FaUser/>Sign In</Nav.Link>
+
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Container>
